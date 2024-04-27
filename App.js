@@ -21,7 +21,7 @@ import {
 const App = () => {
   return (
     <View>
-      <Text>fwgdsadasdf</Text>
+      <Text>fwgdsadasdvcxvf</Text>
     </View>
   );
 };
