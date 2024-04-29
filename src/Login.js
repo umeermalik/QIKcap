@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
 
-const Signupviaemail = props => {
-  const [selectedValue, setSelectedValue] = useState(''); // Initialize with a default value
-
+const Login = props => {
   return (
     <View style={style.container}>
       <Text style={style.H2}>Create Account</Text>
@@ -25,49 +22,26 @@ const Signupviaemail = props => {
         </Text>
         <TextInput placeholder="enter your email" style={style.input} />
         <Text style={{marginLeft: 13, marginRight: 10, marginBottom: 5}}>
-          FULL NAME
-        </Text>
-        <TextInput placeholder="enter your email" style={style.input} />
-        <Text style={{marginLeft: 13, marginRight: 10, marginBottom: 5}}>
-          TITLE
-        </Text>
-        <Picker
-          selectedValue={selectedValue}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-          style={style.input}>
-          <Picker.Item label="Nurse" value="Nurse" />
-          <Picker.Item label="Manager" value="Manager" />
-          <Picker.Item label="Anesthiologist" value="Anesthiologist" />
-          <Picker.Item label="CRNA" value="CRNA" />
-          {/* Add more Picker.Item components for additional options */}
-        </Picker>
-        <Text style={{marginLeft: 13, marginRight: 10, marginBottom: 5}}>
           PASSWORD
         </Text>
-        <TextInput placeholder="Password" style={style.input} />
-        <Text style={{marginLeft: 13, marginRight: 10, marginBottom: 5}}>
-          CONFIRM PASSWORD
-        </Text>
         <TextInput placeholder="enter your email" style={style.input} />
-        <TouchableOpacity
-          style={style.Signup}
-          onPress={() => props.navigation.navigate('Signupviaemail')}>
-          <Text style={style.SignupText}>Signup</Text>
+
+        <TouchableOpacity style={style.Login}>
+          <Text style={style.LoginText}>Login </Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
-
 const style = {
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    marginTop: -30,
+    marginTop: -240,
   },
-  Signup: {
+  Login: {
     backgroundColor: '#6030A1',
     width: 260,
     height: 48,
@@ -76,7 +50,7 @@ const style = {
     marginRight: -15,
     marginLeft: 18,
   },
-  SignupText: {
+  LoginText: {
     color: 'white',
     fontSize: 18,
     textAlign: 'center',
@@ -113,5 +87,4 @@ const style = {
     marginBottom: 10,
   },
 };
-
-export default Signupviaemail;
+export default Login;

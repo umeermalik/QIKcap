@@ -33,7 +33,9 @@ const Signup = props => {
         </Text>
         <Text style={style.regularbody1}>
           Already have account?
-          <TouchableOpacity style={style.login}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Login')}
+            style={style.login}>
             <Text style={{color: 'blue'}}> Login Now</Text>
           </TouchableOpacity>
         </Text>
