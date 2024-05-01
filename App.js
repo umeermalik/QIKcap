@@ -16,12 +16,14 @@ import Splash from './src/Splash';
 import Signup from './src/Signup';
 import Signupviaemail from './src/Signupviaemail';
 import Login from './src/Login';
+import Dashboard from './src/Dashboard';
+import Allpatient from './src/Allpatient';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator initialRouteName="Dashboard">
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -33,6 +35,11 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name="Allpatient"
+          component={Allpatient}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Signupviaemail"
           component={Signupviaemail}
           options={{headerShown: false}}
@@ -40,6 +47,11 @@ const App = () => {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

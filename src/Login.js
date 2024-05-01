@@ -26,7 +26,9 @@ const Login = props => {
         </Text>
         <TextInput placeholder="enter your email" style={style.input} />
 
-        <TouchableOpacity style={style.Login}>
+        <TouchableOpacity
+          style={style.Login}
+          onPress={() => props.navigation.navigate('Dashboard')}>
           <Text style={style.LoginText}>Login </Text>
         </TouchableOpacity>
       </View>
