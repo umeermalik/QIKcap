@@ -28,7 +28,7 @@ const Login = props => {
 
         <TouchableOpacity
           style={style.Login}
-          onPress={() => props.navigation.navigate('Dashboard')}>
+          onPress={() => props.navigation.navigate('CustomDrawer')}>
           <Text style={style.LoginText}>Login </Text>
         </TouchableOpacity>
       </View>

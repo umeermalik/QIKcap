@@ -6,6 +6,7 @@ import {
   TextInput,
   Image,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import {
@@ -16,19 +17,26 @@ import {
   ContributionGraph,
   StackedBarChart,
 } from 'react-native-chart-kit';
+import {useNavigation} from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import {DrawerActions} from '@react-navigation/native';
+import CustomDrawer from './CustomDrawer';
+
+// import CustomDrawer from './CustomDrawer';
 
 const Dashboard = props => {
+  const screenWidth = Dimensions.get('window').width;
+
   return (
     <ScrollView style={style.container}>
-      {/* <Image
-        style={{width: 180, height: 30, marginTop: 15}}
-        source={require('../src/assets/group.png')}
-      /> */}
       <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Image
-          style={style.imagefoursquare}
-          source={require('../src/assets/icons8-four-squares-30.png')}
-        />
+        <TouchableOpacity
+          onPress={() => props.navigation.dispatch(DrawerActions.openDrawer)}>
+          <Image
+            style={style.imagefoursquare}
+            source={require('../src/assets/icons8-four-squares-30.png')}
+          />
+        </TouchableOpacity>
         <Text style={style.dashboardText}>Dashboard</Text>
         <Image
           style={{width: 20, height: 25, marginLeft: '25%'}}
@@ -89,7 +97,6 @@ const Dashboard = props => {
           <Text style={{marginLeft: 45}}>24th September | 12:00 PM</Text>
           <Text style={{marginLeft: 45}}>
             QIKcap Disinfection briefing session
-            {/* <Text style={{marginLeft: 10, marginTop: 10}}></Text> */}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={style.clinicalEventButton}>
@@ -105,7 +112,6 @@ const Dashboard = props => {
           <Text style={{marginLeft: 45}}>24th September | 12:00 PM</Text>
           <Text style={{marginLeft: 45}}>
             QIKcap Disinfection briefing session
-            {/* <Text style={{marginLeft: 10, marginTop: 10}}></Text> */}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={style.viewAllEventsButton}>
@@ -181,6 +187,60 @@ const Dashboard = props => {
             textDisabledColor: 'grey',
           }}
         />
+      </View>
+
+      <View style={{margin: '4%'}}>
+        <Text
+          style={{
+            fontSize: 18,
+            marginLeft: '3%',
+            fontWeight: 'bold',
+            color: 'black',
+          }}>
+          Insights
+        </Text>
+        <LineChart
+          data={{
+            labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
+            datasets: [
+              {
+                data: [1, 2, 3, 4, 5, 6],
+              },
+            ],
+          }}
+          width={330} // Use screenWidth here
+          height={220}
+          yAxisLabel=""
+          yAxisSuffix=""
+          yAxisInterval={1}
+          chartConfig={{
+            backgroundColor: '#5040A3', // Dark purple background color
+            backgroundGradientFrom: '#7B6DC9', // Lighter purple gradient start color
+            backgroundGradientTo: '#A59FE1', // Lighter purple gradient end color
+
+            decimalPlaces: 0,
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+            propsForDots: {
+              r: '6',
+              strokeWidth: '2',
+              stroke: '#ffa726',
+            },
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
+        />
+      </View>
+      <View style={{marginLeft: '12%', marginBottom: '20%', marginTop: '-2%'}}>
+        <TouchableOpacity style={style.viewAllEventsButton}>
+          <Text style={style.viewEventText}>View All Events</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

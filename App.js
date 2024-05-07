@@ -12,46 +12,30 @@ import {
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
 import Splash from './src/Splash';
 import Signup from './src/Signup';
 import Signupviaemail from './src/Signupviaemail';
 import Login from './src/Login';
 import Dashboard from './src/Dashboard';
 import Allpatient from './src/Allpatient';
+import AddingNewPatient from './src/AddingNewPatient';
+import CustomDrawer from './src/CustomDrawer';
+
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+const MainStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Dashboard">
+      <Stack.Navigator initialRouteName="InitialStack">
         <Stack.Screen
-          name="Splash"
-          component={Splash}
+          name="InitialStack"
+          component={InitialStack}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Signup"
-          component={Signup}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Allpatient"
-          component={Allpatient}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Signupviaemail"
-          component={Signupviaemail}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
+          name="CustomDrawer"
+          component={CustomDrawer}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
@@ -59,4 +43,32 @@ const App = () => {
   );
 };
 
-export default App;
+const InitialStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Signupviaemail"
+        component={Signupviaemail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default MainStack;
