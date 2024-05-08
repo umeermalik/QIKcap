@@ -11,48 +11,48 @@ import {
 } from 'react-native';
 import {TextInput, Button} from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const AddingNewPatient = props => {
-  const [modalVisible, setModalVisible] = useState(false);
+const Changeinformation = props => {
   const [selectedValue, setSelectedValue] = useState(''); // Initialize with a default value
-
-  const AddPatientmodal = () => {
-    setModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setModalVisible(false);
-  };
 
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.scrollContent}>
       <View style={styles.header}>
-        <Image
+        {/* <Image
           style={styles.headerIcon}
           source={require('../src/assets/icons8-four-squares-30.png')}
-        />
-        <Text style={styles.headerTitle}>New Patient</Text>
-        <Image
-          style={styles.headerIcon}
-          source={require('../src/assets/Vector.png')}
+        /> */}
+        <Text style={styles.headerTitle}>Samuel Peterson</Text>
+        <Icon
+          name="group"
+          color="black"
+          size={25}
+          style={{marginLeft: '27%'}}
         />
       </View>
 
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>Adding New Patient</Text>
-        <Text style={styles.addNewText}>Add new</Text>
-        <TouchableOpacity
+        <Text style={styles.titleText}>Samuel Peterson</Text>
+        <Icon
+          name="settings"
+          color="black"
+          size={30}
+          style={{marginLeft: '30%'}}
+        />
+        {/* <TouchableOpacity
           onPress={() => props.navigation.navigate('AddingNewPatient')}
           style={styles.addButton}>
           <Text style={styles.addButtonLabel}>+</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.content}>
-        <Text style={styles.contentText}>
-          Enter the patient details and select the segment to add a new patient.
+        <Text style={styles.contentText}>Current Date & Time:</Text>
+        <Text style={{marginBottom: 5, color: 'black', fontWeight: 'bold'}}>
+          Wed 27 Sep 23 - 1:40 PM
         </Text>
         {/* Input fields */}
         <Text>FULL NAME</Text>
@@ -84,11 +84,11 @@ const AddingNewPatient = props => {
 
       <TouchableOpacity
         style={styles.addButtonPurple}
-        onPress={AddPatientmodal}>
-        <Text style={styles.addButtonPurpleText}>Add</Text>
+        onPress={() => props.navigation.navigate('Patientdetailscreen')}>
+        <Text style={styles.addButtonPurpleText}>Save Changes</Text>
       </TouchableOpacity>
 
-      <Modal
+      {/* <Modal
         visible={modalVisible}
         transparent={true}
         animationType="slide"
@@ -157,7 +157,7 @@ const AddingNewPatient = props => {
             </View>
           </View>
         </TouchableWithoutFeedback>
-      </Modal>
+      </Modal> */}
     </ScrollView>
   );
 };
@@ -196,9 +196,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    flex: 1,
+
+    marginLeft: '25%',
     color: 'black',
   },
   titleContainer: {
@@ -233,7 +234,8 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontSize: 17,
-    marginBottom: 10,
+    marginBottom: 1,
+    color: 'black',
   },
   input: {
     backgroundColor: '#F0F0F0',
@@ -282,4 +284,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddingNewPatient;
+export default Changeinformation;

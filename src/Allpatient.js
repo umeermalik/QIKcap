@@ -242,15 +242,19 @@ const styles = StyleSheet.create({
   },
   addNewText: {
     color: 'black',
+    marginRight: 10,
   },
   addButton: {
-    backgroundColor: '#6030A1',
-    padding: 10,
+    backgroundColor: 'white',
     borderRadius: 20,
+    borderWidth: 1,
+    height: 20,
+    width: 20,
   },
   addButtonLabel: {
-    color: 'white',
-    fontSize: 20,
+    color: 'purple',
+    fontSize: 13,
+    textAlign: 'center',
   },
   searchContainer: {
     flexDirection: 'row',

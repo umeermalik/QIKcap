@@ -21,6 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import {DrawerActions} from '@react-navigation/native';
 import CustomDrawer from './CustomDrawer';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // import CustomDrawer from './CustomDrawer';
 
@@ -38,9 +39,11 @@ const Dashboard = props => {
           />
         </TouchableOpacity>
         <Text style={style.dashboardText}>Dashboard</Text>
-        <Image
-          style={{width: 20, height: 25, marginLeft: '25%'}}
-          source={require('../src/assets/Vector.png')}
+        <Icon
+          name="group"
+          color="black"
+          size={30}
+          style={{marginLeft: '30%'}}
         />
       </View>
       <View

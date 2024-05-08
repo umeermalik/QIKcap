@@ -3,6 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Dashboard from './Dashboard';
 import AllPatient from './Allpatient';
 import AddingNewPatient from './AddingNewPatient';
+import Patientdetailscreen from './PatientDetailScreen';
+import Changeinformation from './Changeinformation';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -36,6 +38,16 @@ const DashboardStack = () => {
       <Stack.Screen
         name="AddingNewPatient"
         component={AddingNewPatient}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Patientdetailscreen"
+        component={Patientdetailscreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Changeinformation"
+        component={Changeinformation}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
